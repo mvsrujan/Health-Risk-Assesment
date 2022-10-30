@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Heart Disease Risk Prediction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<h1 class="appname textclr">Heart Disease Risk Assessment</h1>
+ <main class="login">
+
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <p class="question textclr">What is your age?</p>
+    	  <input class="age-input textclr" type="number" name="Age" placeholder="Enter your age" required="required" /><br>
+        <p class="question textclr">What is your Income?</p>
+        <input class="age-input textclr" type="number" name="Income" placeholder="Enter your income" required="required" /><br>
+        <p class="question textclr">What is your Education(out of 6)?</p>
+        <input class="age-input textclr" type="number" name="Education" placeholder="Enter your age" required="required" /><br>
+        <p class="question textclr">Do you exercise regularly(out of 8)?</p>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="exercise" value="1"
+            required="required" />Yes</label>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="exercise" value="0"
+            required="required" />No</label><br>
+        <p class="question textclr">What is your Physical Health (out of 30)?</p>
+        <input class="age-input textclr" type="number" name="PhysHlth" placeholder="Enter your physical health" required="required" /><br>
+        <p class="question textclr">What is your General Health(out of 5)?</p>
+        <input class="age-input textclr" type="number" name="GenHlth" placeholder="Enter your general health" required="required" /><br>
+        <p class="question textclr">Do you have Diabetes(0, type-1 or type -2?</p>
+        <input class="age-input textclr" type="number" name="Diabetes" placeholder="Enter your diabetes type" required="required" /><br>
+        <p class="question textclr">Do you have a history of stroke?</p>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="Sex" value="1" required="required" />Yes</label>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="Sex" value="0" required="required" />No</label><br>
+        <p class="question read-more-q textclr">Do you suffer from High Choslesterol?</p>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="Polyuria" value="1" required="required" />Yes</label>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="Polyuria" value="0" required="required" />No</label><br>
+                <p class="question read-more-q textclr">Do you suffer from High BP?</p>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="BP" value="1" required="required" />Yes</label>
+        <label class="textclr"><input class="radio-input textclr" type="radio" name="BP" value="0" required="required" />No</label><br>
+
+       
+        
+
+        <button type="submit" class="btn-submit" onclick="window.location.href='{{ url_for('predict') }}';">Get Results</button>
+    </form>
+  </main>
+ <footer>
+  <p>He who has health, has hope; and he who has hope, has everything - Thomas Carlyle</p>
+  </footer>
+ 
+</body>
+</html>
+
